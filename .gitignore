@@ -102,3 +102,6 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+/archive/display_table.py
+/archive/trans.sh
+/archive/transliterate.py
