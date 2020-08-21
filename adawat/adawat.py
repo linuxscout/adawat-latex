@@ -241,8 +241,8 @@ class Adawat:
                 resulttext += u'\\hline '+" & ".join(fields) + "\\"*2+"\n"
             resulttext += u"""\hline\n
     \\end{tabular}\n
-    \\label{mytab:table}\n
     \\caption{mytab:table}\n
+    \\label{mytab:table}\n
      \\end{table}\n
                         """
         return resulttext
@@ -261,7 +261,7 @@ class Adawat:
         lines = [u"\item "+l for l in lines]
         lines = u"\n".join(lines)
 
-        resulttext = u"\\begin{%s}\n%s \n\\begin{%s}"%(tag, lines, tag)
+        resulttext = u"\\begin{%s}\n%s \n\\end{%s}"%(tag, lines, tag)
         return resulttext
     @staticmethod
     def tabbing(text, sep="\t"):
@@ -378,24 +378,24 @@ def main():
     try:
         fl=open(filename);
     except:
-        print " Error :No such file or directory: %s" % filename
+        print(" Error :No such file or directory: %s" % filename)
         sys.exit(0)
     text = fl.read().decode("utf8");
     fl.close();
     if command == "lang":
-        print delimite_language(text).encode('utf8')    
+        print(delimite_language(text))
     elif command == "tabulize":
-        print tabulize(text).encode('utf8')
+        print(tabulize(text))
     elif command == "reshape":
-        print " would to reshape text, give n"
+        print(" would to reshape text, give n")
         n = int(input())
-        print reshape(text, n).encode('utf8')
+        print(reshape(text, n))
     elif command == "tabulize_md":
-        print tabulize_md(text).encode('utf8')
+        print(tabulize_md(text))
     elif command == "trans":
-        print pyarabic.trans.tim2utf8(text)
+        print(pyarabic.trans.tim2utf8(text))
     else:
-        print "Choose a command from  ", ",".join(COMMANDS)     
+        print("Choose a command from  ", ",".join(COMMANDS))
 
     return 0
 

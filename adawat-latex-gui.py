@@ -29,7 +29,7 @@ import pyarabic.unshape
 
 from tkinter import Tk, Label, Button, Entry, IntVar, END, W, E, Text
 from tkinter import OptionMenu, StringVar, Menu
-import tkMessageBox
+from tkinter import messagebox as tkMessageBox
 
 #~ from convert import *
 import adawat.adawat
