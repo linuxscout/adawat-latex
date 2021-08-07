@@ -103,7 +103,7 @@ class Adawat:
         for (lang, chunk) in chunks:
             if lang == "arabic":
                 if tag  == "\\begin{arab}":
-                    new_chunks_list.append("\\begin{arab}\n%s\n\end{arab}"%chunk)
+                    new_chunks_list.append("\\begin{arab}[utf]\n%s\n\end{arab}"%chunk)
                 else:
                     new_chunks_list.append("%s{%s}"%(tag, chunk))
             else:

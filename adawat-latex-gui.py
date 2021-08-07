@@ -95,7 +95,7 @@ Welcome\tأهلا ووسهلا"""
         self.lang_options = OptionMenu(master, self.lang_opt, *OPTIONS)
         
         # shape options
-        OPTIONS_SHAPE = [1,2,3,4,5,6,7,8,9]
+        OPTIONS_SHAPE = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
         self.shape_opt = IntVar()
         self.shape_opt.set(OPTIONS_SHAPE[2]) 
         self.shape_options = OptionMenu(master, self.shape_opt, *OPTIONS_SHAPE)
