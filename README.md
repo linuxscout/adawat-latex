@@ -27,4 +27,4 @@ Text tools to handle conversion into Latex with arabic support
  python adawat-latex-gui.py
  ```
  
- ![Gui](docs/latex-adawat.png)
+ ![Gui](./docs/adawat-latex.png)
