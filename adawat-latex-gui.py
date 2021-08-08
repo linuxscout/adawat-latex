@@ -43,8 +43,8 @@ class myToolbox:
         self.adw = adawat.adawat.Adawat()
         self.master = master
         master.title(u"أدوات لاتخ Adawat Latex")
-        myfont = os.path.join(sys.path[0],"resources/fonts/AmiriTypewriter-Regular.ttf")
-        myfont = os.path.join(sys.path[0],"resources","fonts", "AmiriTypewriter-Regular.ttf")
+       # myfont = os.path.join(sys.path[0],"resources/fonts/AmiriTypewriter-Regular.ttf")
+        myfont = os.path.join("resources","fonts", "AmiriTypewriter-Regular.ttf")
         # ~ print(myfont)
         # ~ open(myfont)
         # ~ sys.exit()
