@@ -11,3 +11,5 @@ backup:
 publish:
 	git push origin master 
 
+run;
+	python3 adawat-latex-gui.py 
