@@ -23,15 +23,13 @@
 # 
 import os
 import sys
-#~ import arabic_reshaper
-#~ from bidi.algorithm import get_display
-import pyarabic.unshape
+# ~ import arabic_reshaper
+# ~ from bidi.algorithm import get_display
+# ~ import pyarabic.unshape
 
 from tkinter import Tk, Label, Button, Entry, IntVar, END, W, E, Text
 from tkinter import OptionMenu, StringVar, Menu
 from tkinter import messagebox as tkMessageBox
-
-#~ from convert import *
 import adawat.adawat
 
 
@@ -43,11 +41,8 @@ class myToolbox:
         self.adw = adawat.adawat.Adawat()
         self.master = master
         master.title(u"أدوات لاتخ Adawat Latex")
-       # myfont = os.path.join(sys.path[0],"resources/fonts/AmiriTypewriter-Regular.ttf")
         myfont = os.path.join("resources","fonts", "AmiriTypewriter-Regular.ttf")
-        # ~ print(myfont)
-        # ~ open(myfont)
-        # ~ sys.exit()
+        self.myhelpfile = os.path.join("resources","help", "help.txt")
         self.total = 0
         self.entered_number = 0
         # make menu
@@ -234,18 +229,22 @@ Welcome\tأهلا ووسهلا"""
     #~ @staticmethod
     def bidi(self, text):
         return text
-        #~ reshaped_text  = self.adw.delimite_language_bidi(text, arabic_reshaper.reshape)
-        #~ reshaped_text = arabic_reshaper.reshape(text)
-        #~ bidi_text = get_display(reshaped_text)
-        #~ return bidi_text
+        # ~ reshaped_text  = self.adw.delimite_language_bidi(text, arabic_reshaper.reshape)
+        # ~ reshaped_text = arabic_reshaper.reshape(text)
+        # ~ bidi_text = get_display(reshaped_text)
+        # ~ return bidi_text
     #~ @staticmethod
     def unbidi(self, text):
         return text
-        #~ unshaped_text = pyarabic.unshape.unshaping_text(text)
-        #~ unshaped_text  = self.adw.delimite_language_bidi(text, pyarabic.unshape.unshaping_text)
+        # ~ unshaped_text = pyarabic.unshape.unshaping_text(text)
+        # ~ print("pyarabic unshape", unshaped_text)
+        # ~ unshaped_text  = self.adw.delimite_language_bidi(text, pyarabic.unshape.unshaping_text)
+        # ~ print("***********adw.delimite_language_bidi +pyarabic.unshaping ", unshaped_text)
+        # ~ bidi_text = get_display(unshaped_text)
+        # ~ print("***********get_display", bidi_text)
+        # ~ return unshaped_text
+        # ~ return bidi_text
         
-        #~ bidi_text = get_display(reshaped_text)
-        #~ return unshaped_text
     def get_separator(self,):
         sep = self.separator_opt.get()
         if sep =="tab":
@@ -255,9 +254,19 @@ Welcome\tأهلا ووسهلا"""
         else:
             return sep
     def help(self):
-       tkMessageBox.showinfo("Help", "Not yet implemented")            
+        # openfile help
+        text = "Not yet implemented"
+        try:
+            helpfile = open(self.myhelpfile,encoding="utf8")
+            text = helpfile.read()
+        except:
+            text = "Can't open help file %s"%self.myhelpfile
+        tkMessageBox.showinfo("Help", text)
+
+
     def about(self):
-       tkMessageBox.showinfo("Help", self.bidi( u"أدوات لاتخ\n**Adawat Latex**\n developed by Taha Zerrouki") )           
+        about_text = self.bidi( u"أدوات لاتخ\n**Adawat Latex**\n developed by Taha Zerrouki") 
+        tkMessageBox.showinfo("Help", about_text)           
     def update(self, method):
         """
         
@@ -290,10 +299,10 @@ Welcome\tأهلا ووسهلا"""
         else:
             command = method
         value = self.entry.get("1.0",END)
-        #~ print("just before unbidi",value)
+        # ~ print("just before unbidi",value)
 
         value = self.unbidi(value)
-        #~ print("just before operation",value)
+        # ~ print("just after operation unbidi",value)
         if command == "lang":
             tagToUse = self.lang_opt.get()
             result =  self.adw.delimite_language(value, tag = tagToUse)    
