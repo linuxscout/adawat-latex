@@ -44,7 +44,6 @@ class myToolbox:
         self.master = master
         master.title(u"أدوات لاتخ Adawat Latex")
         myfont = os.path.join(sys.path[0],"resources/fonts/AmiriTypewriter-Regular.ttf")
-
         self.total = 0
         self.entered_number = 0
         # make menu
