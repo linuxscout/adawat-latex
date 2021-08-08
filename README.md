@@ -61,11 +61,24 @@ Text tools to handle conversion into Latex with arabic support
 
  ![Gui](./docs/adawat-latex.png)
 
- ## How To use كيفية الاستعمال
- ### Itemize and Enumerate  قائمة نقاط مرقمة وغير مرقمة
+ ## How To use   كيفية الاستعمال
+ 
+ 
+### Tables and lists  الجداول والقوائم
+* Itemize and Enumerate 
+* CSV to latex table
+* CSV to  latex tabbing
+* Reshape a list into a table
+* CSV to JSON or Python table
+* Composite commands
+ #### Itemize and Enumerate  قائمة نقاط مرقمة وغير مرقمة
  if you have a list of point and you want to convert it to a list, for example:
 
  use "itemize" with parameters option [itemize, enumerate]
+ 
+ إذا لديك  أسطر، وتريد تحويلها إلى قائمة مرقمة أو غير مرقمة استعمل الأمر "itemize" 
+ مع خيارين للقائمة المرقمة وغير المرقمة في لاتخ (itemize, enumerate)
+ 
 
 
  ```text
@@ -93,18 +106,17 @@ Another entry in the list
 
   ```
 
-### Tables and lists
-* CSV to latex table
-* CSV to  latex tabbing
-* Reshape a list into a table
-* CSV to JSON or Python table
-* Composite commands
 #### CSV to table
+يمكن تحويل الأطسر ذات الأعمدة المفصولة بجدولات إلى جدول
+باستعمال الأمر "tabulize" 
 If you have a table on Excel or text with tab as délimeter, you can choose "tabulize" to convert it into:
-* Latex
-* HTML
-* Markdown
-* Input as csv or text delimited by tab
+
+الصيغ الممكنة:
+	* Latex
+	* HTML
+	* Markdown
+
+* Input as csv or text delimited by tab  النص المدخل حيث الاعمدة مفصولة بجدولة
 ```csv
 head1	Head2	head3
 cell	cell2	cell3
@@ -113,7 +125,7 @@ cell	cell2	cell3
 cell	cell2	cell3
 ```
 
-* Output as Tex
+* Output as Tex المخرج بصيغة لاتخ
 ```tex
 \begin{table}
  \begin{tabular}{|c|c|c|}
@@ -132,7 +144,7 @@ cell	cell2	cell3
 
      \end{table}                 
 ```
- * Output as HTML
+ * Output as HTML الناتج بصيغة وب
 ```html
 <table>
 <tr><td>head1 </td><td>Head2 </td><td>head3</td></tr>
@@ -143,7 +155,7 @@ cell	cell2	cell3
 </table>
 ```
 
- * Output as Markdown
+ * Output as Markdown الناتج بصيغة ماركداون
 ```md
 head1 | Head2 | head3
 cell | cell2 | cell3
@@ -154,9 +166,14 @@ cell | cell2 | cell3
 
 
 
-#### Make a latex tabbing
+#### Make a latex tabbing   تحويل الأسطر إلى جدولة لاتخ
+
+الجدولة في لاتخ هي ضيغة تظهر في شكل اعمدة محاذاة غلى بعضها البعض،
+لذا يمكنك استعمال الأمر "tabbing" لتحويل أسطر بها أعمدة إلى جدولة
+مع اختيار علامة الفصل بين الحقول
+
 If you have a table on Excel or text with tab as délimeter, you can choose "tabbing" to convert it into :
-* Latex  tabbing 
+	* Latex  tabbing 
 
 You can choose different separator (tab, space, etc..) in the input text
 ```csv
@@ -179,17 +196,20 @@ cell \> cell2 \> cell3\\
 \end{tabbing}                 
 ```
 
-##### Reshape a list into a table
+##### Reshape a list into a table  إعادة تشكيل أسطر في جدول
+أحيانا بعض البرامج تنسخ الجداول في شكل أسطر تضيع معها معالم الأعمدة، لذا فخاصة "reshape"
+تعيد تقسيم الأسطر إلى أعمدة بعدد معين يمكن ضبطه
+
 Some programs copy tables as list instead of table or matrix, which generate problems.
 The "Reshape" command helps to handle this issue
 
-* Original table 
+* Original table  الجدول الأصلي
 ```text
 1	one
 2	two
 3	three
 ```
- * The input as it has copied format of the table, 
+ * The input as it has copied format of the table,  الجدول بعد نسخه يصبح مجرد أسطر متتابعة
 ```python
 1
 one
@@ -198,7 +218,7 @@ two
 3
 three
 ```
-* Out pur with "Reshape" command with "2" columns as option
+* Out pur with "Reshape" command with "2" columns as option  استعمال إعادة التسكيل مع الخيار "2"
 ```
 1	one
 2	two
@@ -206,7 +226,12 @@ three
 ```
 
 
-#### CSV to Python list
+#### CSV to Python list  أسطر إلى جدول بيثون
+
+تحويل ملف نصي ذي أعمدة مفصولة إلى  جدول بيثون،
+حيث العمود الاول للمفتاح والعمود الثاني للقيمة،
+مع وضع اسم الجدول في السطر الأول
+
 If you have a list of key values in CSV file, you can convert it to python list, or Json, by using "Python List" command.
 
 The first line is the name of table "Table", and colomns are separated by tabulation.
@@ -231,12 +256,16 @@ mytable[u'one'][u'3']='three'
 
 
 
-### Language features
+### Language features وظائف لغوية
 * Transliterate arabic text between (utf, tim bukwalter, Sampa)
 * Detect Arabic segment and tag it
 * Tokenize : convert text into list of words
 * Inverse text
-#### Transliterate 
+#### Transliterate  تحويل النص بين الرومنة والحروف العربيو
+ 
+ يمكن نقحرة النص العربي أي كتابته بالأحرف اللاتينية في نظام تيم بولكولتر أو sampa
+ والتحويل بين هذه الأنظمة
+ 
  The transliterate convere arabic text like this :
 * from Unicode(UTF8) to Tim Bulkwalters transcription,
 * from Tim Bulkwalters transcription  to Unicode(UTF8)
@@ -251,7 +280,13 @@ mytable[u'one'][u'3']='three'
 a:lsla:m ?'ljkm wrxmh a:llh wbrka:th
 ```
 
-#### Detect Arabic segment and tag it
+#### Detect Arabic segment and tag it كشف اللغة وتحديدها
+
+في ملفات لاتخ، نحتاج إلى وضع علامات على بداية المقاطع بالعربية،
+هذه الوظيفة تفعل ذلك
+بوضع علامات
+مثل: (\RL, \begin{arab} environment}
+
 
 If you have a mix text and you want to put it within a Tex document by using Polyglossia, ArabTex or ArabXeTex packages, you can use "language command" with options (\RL, \begin{arab} environment}
 
@@ -271,7 +306,7 @@ The man said
  and he goes.
 ```
 
-#### Tokenize
+#### Tokenize تفريق النص إلى كلمات
 
 IIf you want to split text into words or tokens, just use tokenize
 
@@ -295,9 +330,11 @@ goes
 
 
 
-#### Inverse text
+#### Inverse text قلب النص
 Some programs generate an arabic inversed text, which needs to be inversed.
 It can be used for english, or just to inverse a text.
+
+بعض البرامج تعكس الكلمات العربية، لذا تساعدك هذه الوظيفة في استرجاع النص الاصلي
 
 * Input as text
 ```text
