@@ -1,6 +1,29 @@
 # Adawat-latex
 Text tools to handle conversion into Latex with arabic support
-
+برنامج فيه أدوات لتسهيل نقل النصوص إلى نظام التنضيد لاتخ
+ 
+## مزايا
+*  مزايا لغوية
+	* تحويل النص العربي من الرومنة إلى اليونيكود
+	* كشف مقاطع اللغة العربية وتحديدها
+	* قلب نص 
+	* تفريق نص إلى كلمات
+* الجداول والقوائم
+	* تحويل ملف نصي إلى جدول بصيغة لاتخ، HTML و Markdown
+	* تحويل الأسطر إلى قائمة نقاط مرقمة أو غير مرقمة
+	* تحويل اسطر إلى جدولات ذات محاذاة في لاتخ
+	* إستعادة شكل جدول وتقسيم الاسطر إلى أعمدة
+	* تحويل أسطر إلى جداول بيثون أو json
+* عمليات مركبة
+	يمكن تركيب أكثر من عملية:
+	* تقسيم الاسطر إلى أعمدة جدول، ثم تحويلها إلى جدول
+	* كشف اللغة وتحويل الاسطر إلى نقاط
+	* كشف اللغة، وتحويل الأسطر إلى جدول
+* Compiste command:
+	You can recopy the out put to do more command on the smae text, for example:
+	* reshape and convert into table
+	* detect laguage and itemize
+	* detect laguage and tabulize
 
 ## Features
 *  Language features
@@ -20,21 +43,21 @@ Text tools to handle conversion into Latex with arabic support
 	* detect laguage and itemize
 	* detect laguage and tabulize
 
-### Usage 
- * Command line
+### Usage  استعمال
+ * Command line  سطر الأوامر
  ```
  python adawat-latex.py  -c tabulize -f inputfile.txt
  ```
 
- * GUI
+ * GUI  الواجهة الرسومية
  ```
  python adawat-latex-gui.py
  ```
 
  ![Gui](./docs/adawat-latex.png)
 
- ## How To use
- ### Itemize and Enumerate
+ ## How To use كيفية الاستعمال
+ ### Itemize and Enumerate  قائمة نقاط مرقمة وغير مرقمة
  if you have a list of point and you want to convert it to a list, for example:
 
  use "itemize" with parameters option [itemize, enumerate]
