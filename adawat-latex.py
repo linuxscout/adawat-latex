@@ -166,7 +166,7 @@ def main():
     try:
         fl=open(filename);
     except:
-        print " Error :No such file or directory: %s" % filename
+        print (" Error :No such file or directory: %s" % filename)
         sys.exit(0)
     text = fl.read().decode("utf8");
     fl.close();
