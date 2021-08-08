@@ -1,3 +1,8 @@
+[![GitHub issues](https://img.shields.io/github/issues/linuxscout/adawat-latex)](https://github.com/linuxscout/adawat-latex/issues)
+[![GitHub forks](https://img.shields.io/github/forks/linuxscout/adawat-latex)](https://github.com/linuxscout/adawat-latex/network)
+[![GitHub stars](https://img.shields.io/github/stars/linuxscout/adawat-latex)](https://github.com/linuxscout/adawat-latex/stargazers)
+[![GitHub license](https://img.shields.io/github/license/linuxscout/adawat-latex)](https://github.com/linuxscout/adawat-latex/blob/master/LICENSE)
+
 # Adawat-latex
 Text tools to handle conversion into Latex with arabic support
 
